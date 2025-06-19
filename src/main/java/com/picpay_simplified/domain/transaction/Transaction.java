@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import com.picpay_simplified.domain.user.User;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,7 +32,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private BigDecimal amount;
+    private BigDecimal value;
 
     @ManyToOne
     @JoinColumn(name="payer_id")
@@ -41,5 +42,6 @@ public class Transaction {
     @JoinColumn(name="payee_id")
     private User payee;
 
+    @Column(name="created_at")
     private LocalDateTime timestamp;
 }

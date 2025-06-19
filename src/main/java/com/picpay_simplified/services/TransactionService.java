@@ -39,7 +39,7 @@ public class TransactionService {
         if(!this.authorizeTransaction(payer, transaction.value())) throw new Exception("Transação não autorizada");
 
         Transaction newTransaction = new Transaction();
-        newTransaction.setAmount(transaction.value());
+        newTransaction.setValue(transaction.value());
         newTransaction.setPayee(payee);
         newTransaction.setPayer(payer);
         newTransaction.setTimestamp(LocalDateTime.now());
